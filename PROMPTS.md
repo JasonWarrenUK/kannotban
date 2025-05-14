@@ -150,9 +150,5 @@ Now we will reset the context window, before we do so:
 7. If there have been significant changes, update `FUNCTIONAL.md` or `ARCHITECTURE.md` as required
 8. **IMPORTANT**: Be concise, don't repeat yourself, double check and remove duplication/reduce where possible
 
-<<<<<<< HEAD
-After creating/updating these files, I'll reset the context window and we'll continue
-=======
 After creating/updating these files, I'll reset the context window and we'll continue with the refresh sesion.
->>>>>>> c52c247669c0137e49c08173840690273d25a330
 ```
