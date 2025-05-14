@@ -38,3 +38,18 @@ export function clearTasks(): void {
     throw new Error('Failed to clear tasks. Storage might be unavailable.');
   }
 }
+
+/**
+ * Check if localStorage is available
+ */
+export function isStorageAvailable(): boolean {
+  try {
+    const testKey = 'kannotban-storage-test';
+    localStorage.setItem(testKey, 'test');
+    const result = localStorage.getItem(testKey) === 'test';
+    localStorage.removeItem(testKey);
+    return result;
+  } catch (error) {
+    return false;
+  }
+}
