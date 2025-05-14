@@ -12,13 +12,14 @@
 </script>
 
 <div class="flex flex-col h-full w-full">
-  <header class="bg-slate-800 text-white p-4 shadow-md">
-    <h1 class="text-2xl font-bold">Kannotban</h1>
+  <header class="bg-slate-800 text-white p-3 sm:p-4 shadow-md">
+    <h1 class="text-xl sm:text-2xl font-bold">Kannotban</h1>
   </header>
   
-  <main class="flex-1 p-4 bg-slate-100 overflow-hidden">
-    <div class="flex gap-4 h-full overflow-x-auto">
+  <main class="flex-1 p-2 sm:p-4 bg-slate-100 overflow-hidden">
+    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 h-full overflow-y-auto sm:overflow-y-hidden sm:overflow-x-auto">
       <Column title="To Do" status="todo">
+        <svelte:fragment slot="count">{todoTasks.length}</svelte:fragment>
         {#each todoTasks as task (task.id)}
           <TaskCard 
             id={task.id} 
@@ -30,6 +31,7 @@
       </Column>
       
       <Column title="Doing" status="doing">
+        <svelte:fragment slot="count">{doingTasks.length}</svelte:fragment>
         {#each doingTasks as task (task.id)}
           <TaskCard 
             id={task.id} 
@@ -41,6 +43,7 @@
       </Column>
       
       <Column title="Done" status="done">
+        <svelte:fragment slot="count">{doneTasks.length}</svelte:fragment>
         {#each doneTasks as task (task.id)}
           <TaskCard 
             id={task.id} 
@@ -53,7 +56,7 @@
     </div>
   </main>
   
-  <footer class="bg-slate-800 text-white p-2 text-center text-sm">
+  <footer class="bg-slate-800 text-white p-1 sm:p-2 text-center text-xs sm:text-sm">
     <p>Kannotban - A simple Kanban board</p>
   </footer>
 </div>
