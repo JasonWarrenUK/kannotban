@@ -5,14 +5,14 @@ Use this doc to edit your prompts
 
 ## Jason
 
-### DATA-1
+### DATA-2
 
 ```markdown
 **First, review `CLAUDE.md` to understand our project standards and workflow.**
 
-Review the `ARCHITECTURE.md` and `FUNCTIONAL.md` to understand what we are building.
+Then refresh your memory by checking `HISTORY_JASON.md`. Review the `ARCHITECTURE.md` and `FUNCTIONAL.md` to understand what we are building.
 
-We are working through `TICKETS.md` and are on ticket DATA-1 (I'm Jason).
+We are working through `TICKETS.md` and are on ticket DATA-2A (I'm Jason).
 
 **Before implementing anything:**
 
@@ -26,5 +26,4 @@ As you implement, explain:
 - How it aligns with our `ARCHITECTURE.md`
 - Why it complies with our standards in `CLAUDE.md`
 
-Now, propose an ordered approach that we can take to fulfil this ticket. Do not generate code until we've agreed this.
-```
+Now, propose an app
