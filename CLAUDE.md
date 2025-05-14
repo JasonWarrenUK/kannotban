@@ -1,86 +1,95 @@
 **IMPORTANT FOR CLAUDE: Reference this file before implementing anything**
 
-# Project: [Project Name]
+# Project: Kannotban
 
 ## Project Overview
 
-A brief description of the project, its purpose, and key goals.
+Kannotban is a collaborative Kanban board application for managing tasks across "To Do", "Doing", and "Done" columns with drag-and-drop functionality and localStorage persistence.
 
 ## Tech Stack
 
-- Languages: [list primary languages]
-- Frameworks: [list frameworks]
-- Tools: [list tools]
+- Languages: TypeScript
+- Frameworks: SvelteKit
+- Tools: npm, Tailwind CSS
+- Storage: localStorage
 
 ## Code Style & Conventions
 
 ### Import/Module Standards
 
-- [Specify import standards]
+- Sort imports alphabetically within groups
+- Group imports by: (1) SvelteKit/Svelte, (2) external libraries, (3) internal modules
+- Use path aliases via `$lib/` for internal imports
+- No side effects in import statements
 
 ### Naming Conventions
 
-- [Functions naming convention]
-- [Classes/Components naming convention]
-- [Constants naming convention]
-- [Files naming convention]
+- Functions: camelCase, descriptive verbs (e.g., `createTask`, `moveTask`)
+- Classes/Components: PascalCase (e.g., `TaskCard`, `BoardColumn`)
+- Constants: camelCase for exported, UPPER_SNAKE_CASE for internal
+- Files: kebab-case.svelte for components, kebab-case.ts for utilities
 
 ### Patterns to Follow
 
-- [Key architectural patterns]
-- [Error handling approaches]
-- [Code organisation principles]
+- Flat component hierarchy with self-contained components
+- Use Svelte stores for application state management
+- Component props for passing data down
+- Events for communicating up from child to parent
+- Use TypeScript interfaces for data models
 
 ## Development Workflow
 
-- Branch strategy
-- Commit message format
-- PR requirements
+- Branch strategy: feature branches from main
+- Commit message format: Conventional Commits (`feat(board): add drag and drop`)
+- PR requirements: Passes manual testing, follows coding standards
 
 ## Testing Strategy
 
-- Test frameworks
-- Coverage requirements
-- Test naming conventions
+- Manual testing focused on user flows
+- Visual verification of component rendering
+- Test tasks: creation, editing, dragging between columns, persistence
 
 ## Environment Setup
 
-- Required environment variables
-- Setup commands
-- Local development server
+- Required environment variables: None (local-only application)
+- Setup commands: See "Common Commands"
+- Local development server: `npm run dev`
 
 ## Common Commands
 
 ```bash
-# Build command
-[command]
-
-# Test command
-[command]
-
-# Lint command
-[command]
-
-# Check command
-[command]
+# Install dependencies
+npm install
 
 # Development server
-[command]
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Check types
+npm run check
 ```
 
 ## Project Structure
 
 Key directories and their purpose:
 
-- `/src` - [description]
-- `/tests` - [description]
-- [other important directories]
+- `/src/routes` - SvelteKit file-based routing
+- `/src/lib/components` - Reusable UI components
+- `/src/lib/stores` - State management
+- `/src/lib/models` - TypeScript interfaces/types
+- `/src/lib/actions` - Svelte actions for custom directives
+- `/src/lib/utils` - Helper functions
 
 ## Review Process Guidelines
 
 Before submitting any code, ensure the following steps are completed:
 
-1. **Run all lint, check and test commands**
+1. **Run all check commands**
 
 2. **Review outputs and iterate until all issues are resolved**
 
@@ -91,20 +100,23 @@ Before submitting any code, ensure the following steps are completed:
    - Naming conventions
    - Architecture patterns (refer to `ARCHITECTURE.md`)
    - Error handling
-   - Test coverage
    - Documentation
 
 4. **Self-review checklist**:
-   - [ ] Code follows defined patterns
+   - [ ] Code follows flat component hierarchy pattern
    - [ ] No debug/commented code
-   - [ ] Error handling implemented
-   - [ ] Tests written and passing
-   - [ ] Documentation updated
+   - [ ] Global error handling implemented
+   - [ ] Manual testing completed
+   - [ ] TypeScript interfaces properly defined
 
 ## Known Issues & Workarounds
 
-Document any current limitations or workarounds Claude should be aware of.
+- localStorage limits (5-10MB): Keep task data compact
+- localStorage is synchronous: Avoid excessive reads/writes
+- Drag and drop requires polyfill for older browsers
 
 ## References
 
-Links to relevant external documentation, design docs, or resources.
+- [SvelteKit Documentation](https://kit.svelte.dev/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Svelte Drag and Drop Examples](https://svelte.dev/repl/e0e437cbb1dc4eb9b97bcabc3d093761)

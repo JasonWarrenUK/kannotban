@@ -22,7 +22,7 @@ These are the prompts you can use to do so:
 > Resist the urge of being too ambitious here, remember you must finish building this and fully understand, be able to explain it by the end of the day. This is _just_ a simple kanban board. The aim is simply to make sure it is built the way you want/dictate.
 
 ```markdown
-We're going to discuss the specification for a software project. I am working in team of 2 people, each pair-programming with an AI (we each have the workshop repo cloned to our machines, and each have an instance of Claude Code running inside that repo) in the context of an AI-assisted development workshop. The project details are contained in `BRIEF.md` and workshop details are in `README.md`.
+We're going to discuss the specification for a software project. I am working in team of 3 people, each pair-programming with an AI (we each have the workshop repo cloned to our machines, and each have an instance of Claude Code running inside that repo) in the context of an AI-assisted development workshop. The project details are contained in `BRIEF.md` and workshop details are in `README.md`.
 
 Ask me one question at a time so we can develop thorough, step-by-step specs. Each question should build on my previous answers, and our end goal is to have a detailed specification I can hand off to a developer. This will be built in only a few hours so try and keep the conversation short, apply KISS principles and use logical inference based on previous answers when possible.
 
@@ -30,7 +30,7 @@ We should cover: language (ask this first), frameworks, libraries, package manag
 
 Do not wrap up until you have answers from me for each of these topics. There will be three outputs at the end: a functional spec, an architectural spec, and our code standards specification for `CLAUDE.md`, review the template for this file currently in the repo to understand what we must cover.
 
-**Important**: When asking questions about technical choices, present 2-3 specific options with brief explanations rather than leaving it open-ended. This speeds up decision-making. When there are more viable options available, verbalise this and ask if I want to see more options. Only one question at a time, stay within scope, and don't generate anything until requested.
+**Important**: When asking questions about technical choices, present multiple specific options (absolute minimum of 3) with brief explanations rather than leaving it open-ended. This speeds up decision-making. When there are more viable options available, verbalise this and ask if I want to see more options. Only one question at a time, stay within scope, and don't generate anything until requested.
 ```
 
 ### SPEC WRAP-UP
