@@ -26,3 +26,15 @@ export function loadTasks(): Task[] {
     return [];
   }
 }
+
+/**
+ * Clear all tasks from localStorage
+ */
+export function clearTasks(): void {
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+  } catch (error) {
+    console.error('Failed to clear tasks from localStorage:', error);
+    throw new Error('Failed to clear tasks. Storage might be unavailable.');
+  }
+}
