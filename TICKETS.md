@@ -5,6 +5,7 @@ This document outlines the development tickets for the Kannotban project, organi
 ## Project Setup Tickets
 
 ### SETUP-1: Initialize SvelteKit Project
+
 - **Description**: Set up the initial SvelteKit project with TypeScript and Tailwind CSS
 - **Deliverables**:
   - Initialized SvelteKit project with TypeScript
@@ -16,6 +17,7 @@ This document outlines the development tickets for the Kannotban project, organi
 - **Definition of Done**: Project can be built and run with `npm run dev`
 
 ### SETUP-2: Create Basic Component Structure
+
 - **Description**: Create the shell components defined in the architecture
 - **Deliverables**:
   - Create empty component files for BoardLayout, Column, TaskCard, TaskForm, and ConfirmDialog
@@ -28,6 +30,7 @@ This document outlines the development tickets for the Kannotban project, organi
 ## Data Layer Tickets
 
 ### DATA-1: Implement Data Models and Storage
+
 - **Description**: Create TypeScript interfaces for data models and implement localStorage utilities
 - **Deliverables**:
   - Create Task interface in models directory
@@ -38,6 +41,7 @@ This document outlines the development tickets for the Kannotban project, organi
 - **Definition of Done**: Task interface is defined and storage utilities can save/load data
 
 ### DATA-2: Create Svelte Stores
+
 - **Description**: Implement Svelte stores for state management
 - **Deliverables**:
   - Create tasks store
@@ -50,6 +54,7 @@ This document outlines the development tickets for the Kannotban project, organi
 ## UI Implementation Tickets
 
 ### UI-1: Implement Board Layout
+
 - **Description**: Complete the board layout with three columns
 - **Deliverables**:
   - Implement BoardLayout component
@@ -60,6 +65,7 @@ This document outlines the development tickets for the Kannotban project, organi
 - **Definition of Done**: Board displays with three correctly styled columns
 
 ### UI-2: Implement Basic Task Cards
+
 - **Description**: Create the TaskCard component with basic information display
 - **Deliverables**:
   - Implement TaskCard component with title and description
@@ -70,6 +76,7 @@ This document outlines the development tickets for the Kannotban project, organi
 - **Definition of Done**: Task cards can be rendered with sample data
 
 ### UI-3: Implement Task Form
+
 - **Description**: Create form for adding and editing tasks
 - **Deliverables**:
   - Implement TaskForm component
@@ -80,6 +87,7 @@ This document outlines the development tickets for the Kannotban project, organi
 - **Definition of Done**: Form can be opened, filled out, and submitted
 
 ### UI-4: Implement Confirmation Dialog
+
 - **Description**: Create reusable confirmation dialog
 - **Deliverables**:
   - Implement ConfirmDialog component
@@ -92,6 +100,7 @@ This document outlines the development tickets for the Kannotban project, organi
 ## Functionality Tickets
 
 ### FUNC-1: Implement Task CRUD Operations
+
 - **Description**: Implement task creation, reading, updating, and deletion
 - **Deliverables**:
   - Add task creation functionality
@@ -103,6 +112,7 @@ This document outlines the development tickets for the Kannotban project, organi
 - **Definition of Done**: All CRUD operations work and persist to localStorage
 
 ### FUNC-2: Implement Drag and Drop
+
 - **Description**: Implement drag and drop functionality for moving tasks between columns
 - **Deliverables**:
   - Create draggable action for TaskCard
@@ -116,6 +126,7 @@ This document outlines the development tickets for the Kannotban project, organi
 ## Enhanced Features Tickets
 
 ### ENH-1: Add Assignee and Priority to Tasks
+
 - **Description**: Extend the Task model and UI to include assignee and priority
 - **Deliverables**:
   - Update Task model
@@ -127,6 +138,7 @@ This document outlines the development tickets for the Kannotban project, organi
 - **Definition of Done**: Tasks can be created and updated with assignee and priority information
 
 ### ENH-2: Add Due Date Functionality
+
 - **Description**: Implement due date feature with visual indicators
 - **Deliverables**:
   - Update Task model
@@ -138,6 +150,7 @@ This document outlines the development tickets for the Kannotban project, organi
 - **Definition of Done**: Tasks can have due dates with appropriate visual indicators
 
 ### ENH-3: Implement Filtering and Sorting
+
 - **Description**: Add ability to filter and sort tasks
 - **Deliverables**:
   - Add filter controls to UI
@@ -151,6 +164,7 @@ This document outlines the development tickets for the Kannotban project, organi
 ## Testing and Finalization Tickets
 
 ### TEST-1: Manual Testing and Bug Fixes
+
 - **Description**: Test all user flows and fix identified issues
 - **Deliverables**:
   - Test all user flows defined in FUNCTIONAL.md
@@ -161,6 +175,7 @@ This document outlines the development tickets for the Kannotban project, organi
 - **Definition of Done**: All user flows work as expected with no obvious bugs
 
 ### FINAL-1: Finalize Styling and Accessibility
+
 - **Description**: Polish UI and ensure accessibility compliance
 - **Deliverables**:
   - Add final polish to UI components
@@ -173,6 +188,7 @@ This document outlines the development tickets for the Kannotban project, organi
 - **Definition of Done**: UI is polished and meets basic accessibility requirements
 
 ### FINAL-2: Documentation and Deployment
+
 - **Description**: Document codebase and prepare for deployment
 - **Deliverables**:
   - Update README with usage instructions
@@ -185,7 +201,7 @@ This document outlines the development tickets for the Kannotban project, organi
 
 ## Ticket Dependencies Graph
 
-```
+```src
 SETUP-1 ─┬─ SETUP-2 ─┬─ UI-1 ─── UI-2 ───────┬─ FUNC-2
          │           │                        │
          │           └─ UI-3 ───┐             │
@@ -202,6 +218,7 @@ SETUP-1 ─┬─ SETUP-2 ─┬─ UI-1 ─── UI-2 ───────┬
 ## Developer Workload
 
 ### Ryan
+
 - **SETUP-1**: Initialize SvelteKit Project
 - **SETUP-2**: Create Basic Component Structure  
 - **UI-3**: Implement Task Form
@@ -210,6 +227,7 @@ SETUP-1 ─┬─ SETUP-2 ─┬─ UI-1 ─── UI-2 ───────┬
 - **FINAL-1**: Finalize Styling and Accessibility
 
 ### Jason
+
 - **DATA-1**: Implement Data Models and Storage
 - **DATA-2**: Create Svelte Stores
 - **FUNC-1**: Implement Task CRUD Operations
@@ -217,6 +235,7 @@ SETUP-1 ─┬─ SETUP-2 ─┬─ UI-1 ─── UI-2 ───────┬
 - **FINAL-2**: Documentation and Deployment
 
 ### Alex
+
 - **UI-1**: Implement Board Layout
 - **UI-2**: Implement Basic Task Cards
 - **UI-4**: Implement Confirmation Dialog
