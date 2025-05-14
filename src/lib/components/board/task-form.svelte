@@ -57,11 +57,14 @@
           preparedTask.createdAt = now;
         }
         
-        onSubmit(preparedTask);
+        // Add timeout to simulate network delay and test spinner
+        setTimeout(() => {
+          onSubmit(preparedTask);
+          isSubmitting = false;
+        }, 2000); // 2 second delay
       } catch (error) {
         console.error('Error submitting task:', error);
         errors.form = 'Failed to save task. Please try again.';
-      } finally {
         isSubmitting = false;
       }
     }
