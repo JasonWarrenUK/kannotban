@@ -5,14 +5,17 @@ This document outlines the revised development tickets for the Kannotban project
 ## Current Progress Status
 
 ### ✅ Completed Tickets
+
 - SETUP-1: Initialize SvelteKit Project (Ryan)
 - SETUP-2: Create Basic Component Structure (Ryan)
 - DATA-1: Implement Data Models and Storage (Jason)
 
 ### 🔄 In Progress Tickets
+
 - UI components have been scaffolded but need data connection
 
 ### ❌ Blocked Tickets
+
 - Most functionality tickets are blocked by DATA-2 (Svelte Stores)
 
 ## Bottleneck Analysis
@@ -24,6 +27,7 @@ The primary bottleneck is DATA-2 (Create Svelte Stores), which blocks UI-2, UI-3
 ### DATA-2: Create Svelte Stores (SUBDIVIDED)
 
 #### DATA-2A: Implement Basic Tasks Store
+
 - **Description**: Create the core tasks store for basic application functionality
 - **Deliverables**:
   - Create tasks store with basic CRUD operations
@@ -33,6 +37,7 @@ The primary bottleneck is DATA-2 (Create Svelte Stores), which blocks UI-2, UI-3
 - **Definition of Done**: Basic store is implemented and can be subscribed to
 
 #### DATA-2B: Implement UI State Store
+
 - **Description**: Create the UI state store for application interface state
 - **Deliverables**:
   - Create UI state store (active modal, editing task, etc.)
@@ -41,6 +46,7 @@ The primary bottleneck is DATA-2 (Create Svelte Stores), which blocks UI-2, UI-3
 - **Definition of Done**: UI state store is implemented
 
 #### DATA-2C: Implement Derived Stores
+
 - **Description**: Create derived stores for filtering tasks by status
 - **Deliverables**:
   - Create derived stores that filter tasks by column
@@ -49,6 +55,7 @@ The primary bottleneck is DATA-2 (Create Svelte Stores), which blocks UI-2, UI-3
 - **Definition of Done**: Derived stores are implemented and can be subscribed to
 
 ### UI-1: Implement Board Layout (MODIFIED)
+
 - **Description**: Complete the board layout with three columns
 - **Deliverables**:
   - Implement BoardLayout component
@@ -60,6 +67,7 @@ The primary bottleneck is DATA-2 (Create Svelte Stores), which blocks UI-2, UI-3
 - **Definition of Done**: Board displays with three correctly styled columns, connected to data store
 
 ### UI-2: Implement Basic Task Cards (INDEPENDENT)
+
 - **Description**: Create the TaskCard component with basic information display
 - **Deliverables**:
   - Implement TaskCard component with title and description
@@ -70,6 +78,7 @@ The primary bottleneck is DATA-2 (Create Svelte Stores), which blocks UI-2, UI-3
 - **Definition of Done**: Task cards can be rendered with actual data from the store
 
 ### UI-3: Implement Task Form (INDEPENDENT)
+
 - **Description**: Create form for adding and editing tasks
 - **Deliverables**:
   - Implement TaskForm component
@@ -81,6 +90,7 @@ The primary bottleneck is DATA-2 (Create Svelte Stores), which blocks UI-2, UI-3
 - **Definition of Done**: Form can be opened, filled out, and submitted
 
 ### UI-4: Implement Confirmation Dialog (INDEPENDENT)
+
 - **Description**: Create reusable confirmation dialog
 - **Deliverables**:
   - Implement ConfirmDialog component
@@ -94,6 +104,7 @@ The primary bottleneck is DATA-2 (Create Svelte Stores), which blocks UI-2, UI-3
 ### FUNC-1: Implement Task CRUD Operations (SUBDIVIDED)
 
 #### FUNC-1A: Implement Task Creation
+
 - **Description**: Implement task creation functionality
 - **Deliverables**:
   - Add task creation functionality connected to store
@@ -103,6 +114,7 @@ The primary bottleneck is DATA-2 (Create Svelte Stores), which blocks UI-2, UI-3
 - **Definition of Done**: Tasks can be created and persisted to localStorage
 
 #### FUNC-1B: Implement Task Update and Delete
+
 - **Description**: Implement task updating and deletion functionality
 - **Deliverables**:
   - Add task update functionality
@@ -113,6 +125,7 @@ The primary bottleneck is DATA-2 (Create Svelte Stores), which blocks UI-2, UI-3
 - **Definition of Done**: Tasks can be updated and deleted with persistence to localStorage
 
 ### FUNC-2: Implement Drag and Drop
+
 - **Description**: Implement drag and drop functionality for moving tasks between columns
 - **Deliverables**:
   - Create draggable action for TaskCard
@@ -125,7 +138,7 @@ The primary bottleneck is DATA-2 (Create Svelte Stores), which blocks UI-2, UI-3
 
 ## Revised Ticket Dependencies Graph
 
-```
+```src
 SETUP-1 ─┬─ SETUP-2 ────── UI-4 ────────────────────┐
          │                                          │
          │                               ┌── UI-3 ──┼─ FUNC-1A ── FUNC-1B ── ENH-1 ── ENH-2 ── TEST-1
@@ -144,6 +157,7 @@ SETUP-1 ─┬─ SETUP-2 ────── UI-4 ──────────
 ## Revised Developer Workload
 
 ### Ryan
+
 - ✅ SETUP-1: Initialize SvelteKit Project
 - ✅ SETUP-2: Create Basic Component Structure  
 - 🔄 UI-3: Implement Task Form
@@ -152,6 +166,7 @@ SETUP-1 ─┬─ SETUP-2 ────── UI-4 ──────────
 - ❌ FINAL-1: Finalize Styling and Accessibility
 
 ### Jason
+
 - ✅ DATA-1: Implement Data Models and Storage
 - 🔄 DATA-2A: Implement Basic Tasks Store
 - 🔄 DATA-2B: Implement UI State Store
@@ -162,6 +177,7 @@ SETUP-1 ─┬─ SETUP-2 ────── UI-4 ──────────
 - ❌ FINAL-2: Documentation and Deployment
 
 ### Alex
+
 - 🔄 UI-1: Implement Board Layout
 - 🔄 UI-2: Implement Basic Task Cards
 - 🔄 UI-4: Implement Confirmation Dialog
