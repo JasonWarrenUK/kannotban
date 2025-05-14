@@ -26,4 +26,5 @@ As you implement, explain:
 - How it aligns with our `ARCHITECTURE.md`
 - Why it complies with our standards in `CLAUDE.md`
 
-Now, propose an ordered approach that we can take to fulfil this ticket. Do n
+Now, propose an ordered approach that we can take to fulfil this ticket. Do not generate code until we've agreed this.
+```
