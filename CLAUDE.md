@@ -108,12 +108,24 @@ Before submitting any code, ensure the following steps are completed:
    - [ ] Global error handling implemented
    - [ ] Manual testing completed
    - [ ] TypeScript interfaces properly defined
+   - [ ] Accessibility standards met
+   - [ ] `svelte-check` warnings addressed
+   - [ ] Forms have proper validation
+
+## Accessibility Standards
+
+- Dialogs with role="dialog" must have tabindex="-1"
+- Elements with click events must have keyboard event handlers
+- Use appropriate ARIA attributes (aria-labelledby, aria-modal, etc.)
+- Manage focus when modals open/close
+- Ensure keyboard navigation with ESC key support for closing dialogs
 
 ## Known Issues & Workarounds
 
 - localStorage limits (5-10MB): Keep task data compact
 - localStorage is synchronous: Avoid excessive reads/writes
 - Drag and drop requires polyfill for older browsers
+- Temporal API `until` method requires careful implementation
 
 ## References
 
