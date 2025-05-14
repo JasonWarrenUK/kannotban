@@ -13,3 +13,16 @@ export function saveTasks(tasks: Task[]): void {
     throw new Error('Failed to save tasks. Storage might be full or unavailable.');
   }
 }
+
+/**
+ * Load tasks from localStorage
+ */
+export function loadTasks(): Task[] {
+  try {
+    const savedTasks = localStorage.getItem(STORAGE_KEY);
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  } catch (error) {
+    console.error('Failed to load tasks from localStorage:', error);
+    return [];
+  }
+}
