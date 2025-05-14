@@ -190,4 +190,86 @@ export function formatTimestamp(timestamp: number): string {
   const zonedDateTime = instant.toZonedDateTimeISO(Temporal.Now.timeZoneId());
   
   return zonedDateTime.toLocaleString(undefined, {
-    year: 'num
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+}
+
+// Check if a due date is in the past
+export function isDueDatePast(dueDate: number): boolean {
+  const now = Temporal.Now.instant();
+  const due = Temporal.Instant.fromEpochMilliseconds(dueDate);
+  
+  return Temporal.Instant.compare(due, now) < 0;
+}
+
+// Check if a due date is approaching (within 24 hours)
+export function isDueDateApproaching(dueDate: number): boolean {
+  const now = Temporal.Now.instant();
+  const due = Temporal.Instant.fromEpochMilliseconds(dueDate);
+  const diffInHours = Temporal.Instant.until(now, due, { largestUnit: 'hour' }).hours;
+  
+  return diffInHours > 0 && diffInHours <= 24;
+}
+```
+
+## Interactions and Events
+
+### Drag and Drop
+
+Implementing drag and drop using Svelte actions:
+
+```typescript
+// src/lib/actions/draggable.ts
+export function draggable(node: HTMLElement) {
+  // Implementation for making elements draggable
+}
+
+// src/lib/actions/dropzone.ts
+export function dropzone(node: HTMLElement, options: DropzoneOptions) {
+  // Implementation for creating drop zones
+}
+```
+
+## Error Handling
+
+Using a global error handler to capture and display errors:
+
+```typescript
+// In the root +layout.svelte
+let errorToast: { message: string, type: 'error' | 'warning' | 'info' } | null = null;
+
+// Set up error handler
+onMount(() => {
+  window.addEventListener('error', (event) => {
+    errorToast = { message: event.message, type: 'error' };
+    setTimeout(() => errorToast = null, 5000);
+  });
+});
+```
+
+## Performance Considerations
+
+1. **Minimize rerenders**: Use Svelte's reactivity system efficiently
+2. **Debounce save operations**: Avoid excessive localStorage writes
+3. **Lazy load components**: Use dynamic imports for non-critical components
+4. **Optimize drag operations**: Use requestAnimationFrame for smooth animations
+
+## Accessibility Features
+
+1. **Keyboard navigation**: Ensure all functions are accessible without mouse
+2. **ARIA attributes**: Add proper ARIA roles and attributes to components
+3. **Color contrast**: Ensure text meets WCAG guidelines
+4. **Screen reader support**: Provide appropriate text alternatives
+
+## Implementation Approach
+
+1. Begin with core board structure and basic task card implementation
+2. Add drag and drop functionality
+3. Implement data persistence with localStorage
+4. Add task creation, editing, and deletion
+5. Enhance visual design and feedback
+6. Add additional features based on milestone priorities

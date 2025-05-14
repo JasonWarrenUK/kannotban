@@ -78,4 +78,45 @@ npm run check
 
 Key directories and their purpose:
 
-- `/src/routes
+- `/src/routes` - SvelteKit file-based routing
+- `/src/lib/components` - Reusable UI components
+- `/src/lib/stores` - State management
+- `/src/lib/models` - TypeScript interfaces/types
+- `/src/lib/actions` - Svelte actions for custom directives
+- `/src/lib/utils` - Helper functions
+
+## Review Process Guidelines
+
+Before submitting any code, ensure the following steps are completed:
+
+1. **Run all check commands**
+
+2. **Review outputs and iterate until all issues are resolved**
+
+3. **Assess compliance**:
+   For each standard, explicitly state ✅ or ❌ and explain why:
+
+   - Code style and formatting
+   - Naming conventions
+   - Architecture patterns (refer to `ARCHITECTURE.md`)
+   - Error handling
+   - Documentation
+
+4. **Self-review checklist**:
+   - [ ] Code follows flat component hierarchy pattern
+   - [ ] No debug/commented code
+   - [ ] Global error handling implemented
+   - [ ] Manual testing completed
+   - [ ] TypeScript interfaces properly defined
+
+## Known Issues & Workarounds
+
+- localStorage limits (5-10MB): Keep task data compact
+- localStorage is synchronous: Avoid excessive reads/writes
+- Drag and drop requires polyfill for older browsers
+
+## References
+
+- [SvelteKit Documentation](https://kit.svelte.dev/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Svelte Drag and Drop Examples](https://svelte.dev/repl/e0e437cbb1dc4eb9b97bcabc3d093761)

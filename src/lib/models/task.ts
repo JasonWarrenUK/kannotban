@@ -24,4 +24,12 @@ export type Attachments = Attachment[];
 export interface Comment {
   id: string;
   text: string;
-  createdAt: num
+  createdAt: number;
+}
+
+export interface Attachment {
+  id: string;
+  name: string;
+  url: string;
+  createdAt: number;
+}
