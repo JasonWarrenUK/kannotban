@@ -11,33 +11,4 @@ export function saveTasks(tasks: Task[]): void {
   }
 }
 
-export function loadTasks(): Task[] {
-  try {
-    const savedTasks = localStorage.getItem(STORAGE_KEY);
-    return savedTasks ? JSON.parse(savedTasks) : [];
-  } catch (error) {
-    console.error('Failed to load tasks from localStorage:', error);
-    return [];
-  }
-}
-
-export function clearTasks(): void {
-  try {
-    localStorage.removeItem(STORAGE_KEY);
-  } catch (error) {
-    console.error('Failed to clear tasks from localStorage:', error);
-    throw new Error('Failed to clear tasks. Storage might be unavailable.');
-  }
-}
-
-export function isStorageAvailable(): boolean {
-  try {
-    const testKey = 'kannotban-storage-test';
-    localStorage.setItem(testKey, 'test');
-    const result = localStorage.getItem(testKey) === 'test';
-    localStorage.removeItem(testKey);
-    return result;
-  } catch (error) {
-    return false;
-  }
-}
+export function loadTasks(): Task[] 
