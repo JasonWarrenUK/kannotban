@@ -202,17 +202,17 @@ This document outlines the development tickets for the Kannotban project, organi
 ## Ticket Dependencies Graph
 
 ```src
-SETUP-1 ─┬─ SETUP-2 ─┬─ UI-1 ─── UI-2 ───────┬─ FUNC-2
+SETUP-1 ─┬─ SETUP-2 ─┬─ UI-1 ─── UI-2 ────────┬─ FUNC-2
          │           │                        │
          │           └─ UI-3 ───┐             │
          │                      │             │
          │           ┌─ UI-4 ───┼─ FUNC-1 ─┬─ TEST-1
          │           │          │          │
-         └─ DATA-1 ─ DATA-2 ───┘          ├─ ENH-1 ─── ENH-2 ─┐
-                                           │                  │
-                                           └─ ENH-3 ──────────┼─ FINAL-1
-                                                              │
-                                                              └─ FINAL-2
+         └─ DATA-1 ─ DATA-2 ────┘          ├─ ENH-1 ─── ENH-2 ─┐
+                                           │                   │
+                                           └─ ENH-3 ───────────┼─ FINAL-1
+                                                               │
+                                                               └─ FINAL-2
 ```
 
 ## Developer Workload
