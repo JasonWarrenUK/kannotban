@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
   import { tasksStore } from '../lib/stores';
   import { getCurrentTimestamp } from '../lib/utils';
   import type { Task } from '../lib/models';
 
-  let tasks = [];
+  let tasks: Task[] = [];
   
   // Subscribe to the store
   tasksStore.subscribe(value => {
@@ -22,7 +22,7 @@
       updatedAt: getCurrentTimestamp()
     };
     
-    tasksStore.update(currentTasks => [...currentTasks, newTask]);
+    tasksStore.update(currentTasks => [...currentTasks, newTask as Task]);
   }
 
   // Function to clear all tasks

@@ -182,4 +182,4 @@ SETUP-1 ─┬─ SETUP-2 ────── UI-4 ──────────
 - 🔄 UI-2: Implement Basic Task Cards
 - 🔄 UI-4: Implement Confirmation Dialog
 - ❌ ENH-2: Add Due Date Functionality
-- ❌ TEST-1: Manual Testing and Bug Fixes
+- ❌ TEST-1: Manual Te

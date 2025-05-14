@@ -26,5 +26,4 @@ As you implement, explain:
 - How it aligns with our `ARCHITECTURE.md`
 - Why it complies with our standards in `CLAUDE.md`
 
-Now, propose an approach we should take. Be granular and detailed, but do not generate code until we have agreed an approach. When we generate code, we will stop after each smallest useful commitable modification.
-```
+Now, propose an app
