@@ -16,7 +16,7 @@
     <h1 class="text-xl sm:text-2xl font-bold">Kannotban</h1>
   </header>
   
-  <main class="flex-1 p-2 sm:p-4 bg-slate-100 overflow-hidden">
+  <main class="flex-1 p-2 sm:p-4 bg-slate-100 overflow-hidden mx-auto">
     <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 h-full overflow-y-auto sm:overflow-y-hidden sm:overflow-x-auto">
       <Column title="To Do" status="todo">
         <svelte:fragment slot="count">{todoTasks.length}</svelte:fragment>
