@@ -7,6 +7,7 @@
 - **Package Manager**: npm
 - **Styling**: Tailwind CSS
 - **Data Storage**: localStorage
+- **Date/Time**: Temporal API (via @js-temporal/polyfill)
 - **Build/Dev Tools**: Vite (included with SvelteKit)
 
 ## Project Structure
@@ -69,31 +70,36 @@ BoardLayout
 ### Task Interface
 
 ```typescript
-interface Task {
+export interface Task {
   id: string;              // Unique identifier
   title: string;           // Task title
   description?: string;    // Optional description
-  status: 'todo' | 'doing' | 'done';  // Current column
+  status: Status;          // Current column
   createdAt: number;       // Timestamp
   updatedAt: number;       // Timestamp
   
   // Enhanced features (target)
   assignee?: string;       // Person assigned to the task
-  priority?: 'low' | 'medium' | 'high';  // Priority level
+  priority?: Priority;     // Priority level
   dueDate?: number;        // Timestamp for due date
   
   // Advanced features (stretch)
-  comments?: Comment[];    // Array of comments
-  attachments?: Attachment[];  // Array of attachments
+  comments?: Comments;     // Array of comments
+  attachments?: Attachments; // Array of attachments
 }
 
-interface Comment {
+export type Status = "todo" | "doing" | "done";
+export type Priority = "low" | "medium" | "high";
+export type Comments = Comment[];
+export type Attachments = Attachment[];
+
+export interface Comment {
   id: string;
   text: string;
   createdAt: number;
 }
 
-interface Attachment {
+export interface Attachment {
   id: string;
   name: string;
   url: string;
@@ -121,15 +127,92 @@ export const uiState = writable({
 ## Storage Implementation
 
 ```typescript
+const STORAGE_KEY = 'kannotban-tasks';
+
 // Save tasks to localStorage
-function saveTasks(taskList: Task[]): void {
-  localStorage.setItem('kannotban-tasks', JSON.stringify(taskList));
+export function saveTasks(tasks: Task[]): void {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+  } catch (error) {
+    console.error('Failed to save tasks to localStorage:', error);
+    throw new Error('Failed to save tasks. Storage might be full or unavailable.');
+  }
 }
 
 // Load tasks from localStorage
-function loadTasks(): Task[] {
-  const saved = localStorage.getItem('kannotban-tasks');
-  return saved ? JSON.parse(saved) : [];
+export function loadTasks(): Task[] {
+  try {
+    const savedTasks = localStorage.getItem(STORAGE_KEY);
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  } catch (error) {
+    console.error('Failed to load tasks from localStorage:', error);
+    return [];
+  }
+}
+
+// Clear all tasks from localStorage
+export function clearTasks(): void {
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+  } catch (error) {
+    console.error('Failed to clear tasks from localStorage:', error);
+    throw new Error('Failed to clear tasks. Storage might be unavailable.');
+  }
+}
+
+// Check if localStorage is available
+export function isStorageAvailable(): boolean {
+  try {
+    const testKey = 'kannotban-storage-test';
+    localStorage.setItem(testKey, 'test');
+    const result = localStorage.getItem(testKey) === 'test';
+    localStorage.removeItem(testKey);
+    return result;
+  } catch (error) {
+    return false;
+  }
+}
+```
+
+## Date Utilities
+
+```typescript
+import { Temporal } from '@js-temporal/polyfill';
+
+// Get current timestamp as a number
+export function getCurrentTimestamp(): number {
+  return Temporal.Now.instant().epochMilliseconds;
+}
+
+// Format a timestamp to a readable date string
+export function formatTimestamp(timestamp: number): string {
+  const instant = Temporal.Instant.fromEpochMilliseconds(timestamp);
+  const zonedDateTime = instant.toZonedDateTimeISO(Temporal.Now.timeZoneId());
+  
+  return zonedDateTime.toLocaleString(undefined, {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+}
+
+// Check if a due date is in the past
+export function isDueDatePast(dueDate: number): boolean {
+  const now = Temporal.Now.instant();
+  const due = Temporal.Instant.fromEpochMilliseconds(dueDate);
+  
+  return Temporal.Instant.compare(due, now) < 0;
+}
+
+// Check if a due date is approaching (within 24 hours)
+export function isDueDateApproaching(dueDate: number): boolean {
+  const now = Temporal.Now.instant();
+  const due = Temporal.Instant.fromEpochMilliseconds(dueDate);
+  const diffInHours = Temporal.Instant.until(now, due, { largestUnit: 'hour' }).hours;
+  
+  return diffInHours > 0 && diffInHours <= 24;
 }
 ```
 

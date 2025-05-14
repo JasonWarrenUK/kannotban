@@ -150,4 +150,5 @@ Now we will reset the context window, before we do so:
 7. If there have been significant changes, update `FUNCTIONAL.md` or `ARCHITECTURE.md` as required
 8. **IMPORTANT**: Be concise, don't repeat yourself, double check and remove duplication/reduce where possible
 
-After creating/updating these files, I'll reset the context window and we'll contin
+After creating/updating these files, I'll reset the context window and we'll continue
+```
