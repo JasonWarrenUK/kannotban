@@ -2,9 +2,6 @@ import type { Task } from '../models';
 
 const STORAGE_KEY = 'kannotban-tasks';
 
-/**
- * Save tasks to localStorage
- */
 export function saveTasks(tasks: Task[]): void {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
@@ -14,9 +11,6 @@ export function saveTasks(tasks: Task[]): void {
   }
 }
 
-/**
- * Load tasks from localStorage
- */
 export function loadTasks(): Task[] {
   try {
     const savedTasks = localStorage.getItem(STORAGE_KEY);
@@ -27,9 +21,6 @@ export function loadTasks(): Task[] {
   }
 }
 
-/**
- * Clear all tasks from localStorage
- */
 export function clearTasks(): void {
   try {
     localStorage.removeItem(STORAGE_KEY);
@@ -39,9 +30,6 @@ export function clearTasks(): void {
   }
 }
 
-/**
- * Check if localStorage is available
- */
 export function isStorageAvailable(): boolean {
   try {
     const testKey = 'kannotban-storage-test';
